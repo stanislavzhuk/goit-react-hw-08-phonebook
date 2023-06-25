@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text {
+  margin-top: 50px;
+  font-size: 35px;
+}
+
+.link {
+  color: #a75f06;
+  text-decoration: underline;
+  transition: color 250ms ease;
+}
+
+.link:hover {
+  color: #f5b05c;
+}

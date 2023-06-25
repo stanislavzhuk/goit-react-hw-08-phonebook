@@ -13,13 +13,13 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="contacts" element={<Contacts />} />
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
+        <Route path='contacts' element={<Contacts />} />
+        <Route path='register' element={<Register />} />
+        <Route path='login' element={<Login />} />
         <Route path='*' element={<NotFound />} />
       </Route>
     </Routes>
-  )
+  );
 };
 
 export default App;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Label, Input, Button } from "./ContactForm.styled";
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { notifyAddContacts, notifyCheckContacts } from 'services/notify';
-import { addContactThunk } from 'redux/contactsThunk';
+import { addContactThunk } from 'redux/contacts/contactsThunk';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
