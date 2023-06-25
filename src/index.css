@@ -19,6 +19,12 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
+
+  margin-top: 70px;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 code {
@@ -46,4 +52,13 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
