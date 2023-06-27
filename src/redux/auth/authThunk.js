@@ -1,9 +1,18 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { clearAuthHeader, setAuthHeader } from 'services/phonebookAPI';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const register = createAsyncThunk(
-  'auth/register',
+const setAuthHeader = token => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = '';
+};
+
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+
+export const userRegistration = createAsyncThunk(
+  'auth/signup',
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/users/signup', credentials);
@@ -16,7 +25,7 @@ export const register = createAsyncThunk(
   }
 );
 
-export const logIn = createAsyncThunk(
+export const userLogIn = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
@@ -30,7 +39,7 @@ export const logIn = createAsyncThunk(
   }
 );
 
-export const logOut = createAsyncThunk('/users/logout', async (_, { rejectWithValue }) => {
+export const userLogOut = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) => {
   try {
     await axios.post('/users/logout');
     clearAuthHeader();

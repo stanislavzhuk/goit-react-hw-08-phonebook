@@ -1,51 +1,52 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-// import { addContact, deleteContact, fetchContacts } from "services/contactsAPI";
-import { addContact, deleteContact, fetchContacts, patchContact } from "services/phonebookAPI";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchContactsThunk = createAsyncThunk(
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+
+export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
-  async (_, { rejectWithValue }) => {
+  async (_, thunkAPI) => {
     try {
-      const data = await fetchContacts();
-      return data;
-    } catch (e) {
-      return rejectWithValue(e.message);
+      const response = await axios.get('/contacts');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const addContactThunk = createAsyncThunk(
+export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async (contact, { rejectWithValue }) => {
+  async (contact, thunkAPI) => {
     try {
-      const data = await addContact(contact);
-      return data;
-    } catch (e) {
-      return rejectWithValue(e.message);
+      const response = await axios.post('/contacts', contact);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const deleteContactThunk = createAsyncThunk(
+export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
-  async (id, { rejectWithValue }) => {
+  async (id, thunkAPI) => {
     try {
-      const data = await deleteContact(id);
-      return data;
-    } catch (e) {
-      return rejectWithValue(e.message);
+      const response = await axios.delete(`/contacts/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const patchContactThunk = createAsyncThunk(
-  'contacts/patchContact',
-  async ({ id, name, number }, { rejectWithValue }) => {
+export const updateContact = createAsyncThunk(
+  'contacts/updateContact',
+  async (id, thunkAPI) => {
     try {
-      const data = await patchContact(id, { name, number });
-      return data;
-    } catch (e) {
-      return rejectWithValue(e.message);
+      const response = await axios.patch(`/contacts/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

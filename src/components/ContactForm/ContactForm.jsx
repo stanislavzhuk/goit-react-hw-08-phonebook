@@ -3,7 +3,7 @@ import { Form, Label, Input, Button } from "./ContactForm.styled";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { notifyAddContacts, notifyCheckContacts } from 'services/notify';
-import { addContactThunk } from 'redux/contacts/contactsThunk';
+import { addContact } from 'redux/contacts/contactsThunk';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -26,7 +26,7 @@ const ContactForm = () => {
     e.preventDefault();
     if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) return notifyCheckContacts(name);
     
-    dispatch(addContactThunk({ name, phone: number }));
+    dispatch(addContact({ name, phone: number }));
     notifyAddContacts(name);
     reset();
   };

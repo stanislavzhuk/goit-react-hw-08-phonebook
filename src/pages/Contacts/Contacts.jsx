@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContactsThunk } from "redux/contacts/contactsThunk";
+import { fetchContacts } from "redux/contacts/contactsThunk";
 import { selectContacts, selectError, selectIsLoading } from "redux/contacts/selectors";
 import ContactForm from "components/ContactForm/ContactForm";
 import ContactList from "components/ContactList/ContactList";
@@ -14,7 +14,7 @@ const Contacts = () => {
   const error = useSelector(selectError);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchContactsThunk());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
@@ -34,6 +34,6 @@ const Contacts = () => {
       )}
     </div>
   );
-}
+};
 
 export default Contacts;
