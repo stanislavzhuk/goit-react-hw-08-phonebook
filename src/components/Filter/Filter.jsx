@@ -7,7 +7,7 @@ import { FilterLabel, FilterInput } from './Filter.styled';
 const Filter = () => {
   const dispatch = useDispatch();
   const filterValue = useSelector(selectFilter);
-  const onChange = ({ target: { value } }) => {
+  const handleChange = ({ target: { value } }) => {
     dispatch(updateFilter(value));
   };
 
@@ -18,7 +18,7 @@ const Filter = () => {
         type="text"
         name="filter"
         value={filterValue.filter}
-        onChange={onChange}
+        onChange={handleChange}
         pattern="^[A-Za-z\u0080-\uFFFF ']+$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         placeholder="Enter contact name"
