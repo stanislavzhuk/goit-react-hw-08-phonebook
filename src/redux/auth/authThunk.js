@@ -39,14 +39,17 @@ export const userLogIn = createAsyncThunk(
   }
 );
 
-export const userLogOut = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) => {
-  try {
-    await axios.post('/users/logout');
-    clearAuthHeader();
-  } catch (e) {
-    return rejectWithValue(e.message);
+export const userLogOut = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      await axios.post('/users/logout');
+      clearAuthHeader();
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
   }
-});
+);
 
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
