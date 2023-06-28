@@ -9,28 +9,35 @@ import Loader from "components/Loader/Loader";
 import css from './Contacts.module.css';
 
 const Contacts = () => {
-  const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  const error = useSelector(selectError);
+  const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+
   return (
     <div className={css.container}>
-      <h1 className={css.title}>Phonebook</h1>
-      <ContactForm />
-      {isLoading && !error && <Loader />}
-      {error && <h2>{error}</h2>}
-      {contacts.length ? (
-        <>
-          <h2 className={css.titleContacts}>Contacts</h2>
-          <Filter />
-          <ContactList />
-        </>
+      {error ? (
+        <h2>{error}</h2>
       ) : (
-        <p className={css.textInfo}>No any contacts</p>
+        <>
+          <h1 className={css.title}>Phonebook</h1>
+          <ContactForm />
+          {isLoading && !error && <Loader />}
+          {contacts.length ? (
+            <>
+              <h2 className={css.titleContacts}>Contacts</h2>
+              <Filter />
+              <ContactList />
+            </>
+          ) : (
+            <p className={css.textInfo}>No any contacts</p>
+          )}
+        </>
       )}
     </div>
   );
