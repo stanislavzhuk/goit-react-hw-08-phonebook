@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logOut } from 'redux/auth/authThunk';
+import { userLogOut } from 'redux/auth/authThunk';
 import { selectUser } from 'redux/auth/selectors';
 
 const UserMenu = () => {
@@ -10,7 +10,7 @@ const UserMenu = () => {
   const user = useSelector(selectUser);
 
   const handleLogOut = () => {
-    dispatch(logOut())
+    dispatch(userLogOut())
     navigate('/', { replace: true })
   }
 
