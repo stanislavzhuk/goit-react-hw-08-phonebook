@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userLogOut } from 'redux/auth/authThunk';
 import { selectUser } from 'redux/auth/selectors';
+import { Button, Container, Text } from './UserMenu.styled';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -15,10 +16,10 @@ const UserMenu = () => {
   }
 
   return (
-    <div>
-      <p>Welcome, {user.name}</p>
-      <button type="button" onClick={handleLogOut}>Log out</button>
-    </div>
+    <Container>
+      <Text>Welcome, {user.name}</Text>
+      <Button type="button" onClick={handleLogOut}>Log out</Button>
+    </Container>
   );
 };
 
