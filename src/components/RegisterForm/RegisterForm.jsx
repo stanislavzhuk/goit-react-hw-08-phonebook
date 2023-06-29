@@ -44,6 +44,9 @@ const RegisterForm = () => {
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: '#fff',
                 },
+                '& .MuiInputBase-input': {
+                  color: '#fff',
+                },
               }}
             />
           </Grid>
@@ -61,6 +64,9 @@ const RegisterForm = () => {
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: '#fff',
                 },
+                '& .MuiInputBase-input': {
+                  color: '#fff',
+                },
               }}
             />
           </Grid>
@@ -77,6 +83,9 @@ const RegisterForm = () => {
                 },
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: '#fff',
+                },
+                '& .MuiInputBase-input': {
+                  color: '#fff',
                 },
               }}
             />

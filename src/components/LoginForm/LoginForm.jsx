@@ -43,6 +43,9 @@ const LoginForm = () => {
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: '#fff',
                 },
+                '& .MuiInputBase-input': {
+                  color: '#fff',
+                },
               }}
             />
           </Grid>
@@ -59,6 +62,9 @@ const LoginForm = () => {
                 },
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: '#fff',
+                },
+                '& .MuiInputBase-input': {
+                  color: '#fff',
                 },
               }}
             />

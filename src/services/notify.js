@@ -1,6 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 Notify.init({
+  position: 'center-top',
   borderRadius: '10px',
   timeout: 4000,
   clickToClose: true,

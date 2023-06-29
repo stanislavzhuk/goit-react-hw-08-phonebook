@@ -6,7 +6,7 @@ import ContactForm from "components/ContactForm/ContactForm";
 import ContactList from "components/ContactList/ContactList";
 import Filter from "components/Filter/Filter";
 import Loader from "components/Loader/Loader";
-import css from './Contacts.module.css';
+import { Container, TextInfo, Title, TitleContacts } from "./Contacts.styled";
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -20,26 +20,26 @@ const Contacts = () => {
   const isLoading = useSelector(selectIsLoading);
 
   return (
-    <div className={css.container}>
+    <Container>
       {error ? (
         <h2>{error}</h2>
       ) : (
         <>
-          <h1 className={css.title}>Phonebook</h1>
+          <Title>Phonebook</Title>
           <ContactForm />
           {isLoading && !error && <Loader />}
           {contacts.length ? (
             <>
-              <h2 className={css.titleContacts}>Contacts</h2>
+              <TitleContacts>Contacts</TitleContacts>
               <Filter />
               <ContactList />
             </>
           ) : (
-            <p className={css.textInfo}>No any contacts</p>
+            <TextInfo>No any contacts</TextInfo>
           )}
         </>
       )}
-    </div>
+    </Container>
   );
 };
 
