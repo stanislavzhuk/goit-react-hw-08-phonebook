@@ -1,3 +1,4 @@
+import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -20,29 +21,70 @@ const RegisterForm = () => {
 
   return (
     <div>
-      <h2>Sign up</h2>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your name"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Create a password"
-          required
-        />
-        <button type="submit">Sign up</button>
-      </form>
-      <div>
+      <Typography variant="h2" align="center" sx={{ fontSize: '35px', fontWeight: `bold` }}>
+        Sign up
+      </Typography>
+      <Box
+        component="form"
+        sx={{ mt: 3 }}
+        onSubmit={handleSubmit}
+        autoComplete="off">
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField
+              type="text"
+              name="name"
+              label="Name"
+              required
+              fullWidth
+              sx={{
+                '& label': {
+                  color: '#fff',
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#fff',
+                },
+              }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              type="email"
+              name="email"
+              label="Email"
+              required
+              fullWidth
+              sx={{
+                '& label': {
+                  color: '#fff',
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#fff',
+                },
+              }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              type="password"
+              name="password"
+              label="Password"
+              required
+              fullWidth
+              sx={{
+                '& label': {
+                  color: '#fff',
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#fff',
+                },
+              }}
+            />
+          </Grid>
+        </Grid>
+        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 3, padding: '10px 20px' }}>Sign up</Button>
+      </Box>
+      <div style={{ textAlign: 'center' }}>
         <p>
           Already have an account?
           <Link to="/login"> Log in</Link>

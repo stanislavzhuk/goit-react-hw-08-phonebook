@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userLogIn } from 'redux/auth/authThunk';
+import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -19,23 +20,53 @@ const LoginForm = () => {
 
   return (
     <div>
-      <h2>Log in</h2>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter your password"
-          required
-        />
-        <button type="submit">Log in</button>
-      </form>
-      <div>
+      <Typography variant="h2" align="center" sx={{ fontSize: '35px', fontWeight: `bold` }}>
+        Log in
+      </Typography>
+      <Box
+        component="form"
+        sx={{ mt: 3 }}
+        onSubmit={handleSubmit}
+        autoComplete="off">
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField
+              type="email"
+              name="email"
+              label="Email"
+              required
+              fullWidth
+              sx={{
+                '& label': {
+                  color: '#fff',
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#fff',
+                },
+              }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              type="password"
+              name="password"
+              label="Password"
+              required
+              fullWidth
+              sx={{
+                '& label': {
+                  color: '#fff',
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#fff',
+                },
+              }}
+            />
+          </Grid>
+        </Grid>
+        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 3, padding: '10px 20px' }}>Log in</Button>
+      </Box>
+      <div style={{ textAlign: 'center' }}>
         <p>
           Don't have an account?
           <Link to="/register"> Sign up</Link>

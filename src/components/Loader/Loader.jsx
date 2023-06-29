@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import loader from '../../images/loader.gif'
-import css from './Loader.module.css';
+import { LoaderImg, Overlay } from "./Loader.styled";
 
 const root4Loader = document.querySelector('#loader');
 
@@ -14,14 +14,13 @@ const Loader = ({ size = 100}) => {
   });
 
   return createPortal(
-    <div className={css.overlay}>
-      <img
+    <Overlay>
+      <LoaderImg
         src={loader}
         alt="loading..."
         width={size}
-        className={css.loader}
       />
-    </div>,
+    </Overlay>,
     root4Loader
   );
 };

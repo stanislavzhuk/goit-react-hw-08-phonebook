@@ -1,4 +1,6 @@
-.overlay {
+import styled from '@emotion/styled';
+
+export const Overlay = styled.div`
   overscroll-behavior: contain;
   position: fixed;
   overflow: hidden;
@@ -12,9 +14,9 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
-}
+`;
 
-.loader {
-    z-index: 10000;
-    user-select: none;
-}
+export const LoaderImg = styled.img`
+  z-index: 10000;
+  user-select: none;
+`;
