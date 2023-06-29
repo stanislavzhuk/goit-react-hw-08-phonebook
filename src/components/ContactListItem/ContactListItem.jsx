@@ -24,12 +24,12 @@ const ContactListItem = () => {
     notifyDeleteContact();
   };
 
-  return filtredContacts.sort((a, b) => a.name.localeCompare(b.name)).map(({ id, name, phone }) => {
+  return filtredContacts.sort((a, b) => a.name.localeCompare(b.name)).map(({ id, name, number }) => {
     return (
       <Item key={id}>
         <Contact>
           <Name>{name}:</Name>
-          <Phone>{phone}</Phone>
+          <Phone>{number}</Phone>
         </Contact>
         <Button type="button" onClick={() => onDelete(id)}>
           Delete
