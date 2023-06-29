@@ -1,4 +1,7 @@
-.container {
+import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
+
+export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -8,7 +11,6 @@
   padding: 40px;
   max-width: 500px;
   max-height: 500px;
-  /* height: 70vh; */
 
   font-size: 35px;
   text-align: center;
@@ -18,9 +20,9 @@
 
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-}
+`;
 
-.visually__hidden {
+export const VisuallyHidden = styled.h1`
   position: absolute;
   width: 1px;
   height: 1px;
@@ -32,13 +34,13 @@
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-}
+`;
 
-.error {
+export const Error = styled.h2`
   font-size: 100px;
-}
+`;
 
-.button {
+export const StyledLink = styled(Link)`
   display: inline-block;
   margin-top: 30px;
   padding: 10px 30px;
@@ -54,9 +56,9 @@
   cursor: pointer;
 
   transition: all 250ms ease;
-}
 
-.button:hover {
-  background-color: #ffffff;
-  color: #000000;
-}
+  &:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+`;
